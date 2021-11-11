@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Market</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 1vw;
+        }
+
+        th {
+            min-width: 5vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <fieldset>
+            <legend>Filter Data</legend>
+            <form id="form-filter">
+                <label for="filter-nama">Nama</label>
+                <input type="text" id="filter-nama">
+                <br><br>
+                <label for="min">Harga</label>
+                <input type="number" id="min" placeholder="Minimum">
+                <input type="number" id="max" placeholder="Maximum">
+                <br><br>
+                <label for="filter-kategori">Kategeori</label>
+                <select  id="filter-kategori">
+                    <option value="all">All</option>
+                    <option value="makanan">Makanan</option>
+                    <option value="minuman">Minuman</option>
+                    <option value="elektronik">Elektronik</option>
+                </select><br><br>
+                <button type="button" onclick="btnFilter()">Cari</button>
+                <button type="button" onclick="btnReset()">Reset</button>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>Tambah Produk</legend>
+            <form id="form-produk">
+                <input type="text" id="img-produk" placeholder="Gambar"><br>
+                <input type="text" id="nama-produk" placeholder="Nama"><br>
+                <input type="number" id="harga-produk" placeholder="Harga Produk"><br>
+                <input type="number" id="stok-produk" placeholder="Stok">
+                <select id="kategori-produk">
+                    <option value="null">Pilih Kategeori</option>
+                    <option value="makanan">Makanan</option>
+                    <option value="minuman">Minuman</option>
+                    <option value="elektronik">Elektronik</option>
+                </select>
+                <button type="button" onclick="btnSimpan()">Simpan</button>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>Daftar Produk</legend>
+            <table>
+                <thead>
+                    <tr>
+                        <th>SKU</th>
+                        <th>Gambar Produk</th>
+                        <th>Nama</th>
+                        <th>Kategori</th>
+                        <th>Stok</th>
+                        <th>Harga</th>
+                        <th>Action</th>
+                        <th>Buy</th>
+                    </tr>
+                </thead>
+                <tbody id="table-produk">
+
+                </tbody>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>Keranjang Pembelian</legend>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>SKU</th>
+                        <th>Nama Produk</th>
+                        <th>Kategori Produk</th>
+                        <th>Kuantitas</th>
+                        <th>Harga/Qty</th>
+                        <th>Sub. Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="table-keranjang"></tbody>
+            </table><br>
+            <button type="button" onclick="btnCheckOut()">Pembayaran</button>
+        </fieldset>
+        <fieldset>
+            <legend>Payment</legend>
+            <h3>Detail Transaksi</h3>
+            <p id="tampil-transaksi"></p><br>
+            <h4>Total Payment</h4>
+            <h4 id="tampil-subtotal"><br></h4>
+            <input type="number" id="input-uang" placeholder="Input Uang Anda">
+            <button type="button" onclick="btnBayar()">Bayar</button>
+            <p id="tampil-kembalian"></p>
+        
+        </fieldset>
+    </div>
+</body>
+
+<script src="./simpleMarket.js">
+</script>
+</html>
